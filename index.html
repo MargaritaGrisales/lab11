@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios</title>
+  </head>
+  <body>
+    <script>
+      // Preguntar al usuario qué ejercicio quiere hacer
+      let ejercicio = prompt(
+        "¿Qué ejercicio deseas hacer? Ingresa un número: \n1. Calificación\n2. Par o impar\n3. Descuento\n4. Adivina el número"
+      );
+
+      // Ejercicio 1: Calificación
+      if (ejercicio == 1) {
+        let calificacion = prompt(
+          "Por favor ingrese una calificación entre 0 y 100."
+        );
+        if (calificacion >= 90) {
+          document.write("Aprobado con honores");
+        } else if (calificacion >= 70 && calificacion < 90) {
+          document.write("Aprobado");
+        } else if (calificacion < 70 && calificacion > 0) {
+          document.write("Reprobado");
+        } else {
+          document.write("Calificación inválida, intenta de nuevo.");
+        }
+
+        // Ejercicio 2: Par o impar
+      } else if (ejercicio == 2) {
+        let numero = prompt("Por favor ingrese un número: ");
+        if (numero % 2 == 0) {
+          document.write("El número ", numero, " es par");
+        } else {
+          document.write("El número ", numero, " es impar");
+        }
+
+        // Ejercicio 3: Descuento
+      } else if (ejercicio == 3) {
+        let total = prompt("Ingrese el monto total de su compra: ");
+        if (total >= 100) {
+          document.write("Usted aplica para un descuento del 10%." + "<br>");
+          let descuento = total * 0.1;
+          let totalConDescuento = total - descuento;
+          document.write(
+            "El monto total de su compra con descuento es: " + totalConDescuento
+          );
+        } else {
+          document.write("Usted no aplica para un descuento.");
+        }
+
+        // Ejercicio 4: Adivinar el número
+      } else if (ejercicio == 4) {
+        let numeroAleatorio = Math.floor(Math.random() * 10) + 1;
+        let numero;
+
+        // Bucle que se repite hasta que el usuario adivine el número
+        while (true) {
+          numero = prompt(
+            "¡Adivina el número!, ingresa un número del 1 al 10: "
+          );
+
+          if (numero == numeroAleatorio) {
+            document.write("¡Adivinaste el número!");
+            break; // Salir del bucle cuando el número sea correcto
+          } else {
+            document.write("Sigue intentando...");
+          }
+        }
+      } else {
+        // Si el usuario ingresa una opción no válida
+        document.write(
+          "Opción inválida, por favor elige un número entre 1 y 4."
+        );
+      }
+    </script>
+  </body>
+</html>
